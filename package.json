@@ -1,0 +1,8 @@
+{
+  "name": "karvon",
+  "version": "1.0.0",
+  "description": "Karvon — Ipak yoʻli savol-javob poygasi",
+  "main": "karvon-server.js",
+  "scripts": { "start": "node karvon-server.js" },
+  "engines": { "node": ">=18" }
+}

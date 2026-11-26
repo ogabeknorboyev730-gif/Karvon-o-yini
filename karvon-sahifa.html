@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Karvon — Ipak yoʻli poygasi</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&family=Unbounded:wght@600;800&display=swap">
+<style>
+:root{--bg:#F3F1FB;--sf:#fff;--ink:#1A1B3F;--mut:#5E6190;--line:#DAD7EE;--night:#141B4D;--dusk:#6A2C91;--sun:#FF8A3D;--gold:#FFC145;--turq:#0FA9A7;--lapis:#2A4BC0;--rose:#D6336C;--d1:#2B1B63;--d2:#190F45}
+@media(prefers-color-scheme:dark){:root{--bg:#0B0E2A;--sf:#161B47;--ink:#F0EEFF;--mut:#A3A7D6;--line:#2A3070;--lapis:#8AA2FF;--turq:#34D1CE;--rose:#FF6B9A}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 Onest,system-ui,sans-serif;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+main{max-width:640px;margin:0 auto;padding:14px 14px 60px}
+h1,h2{font-family:Unbounded,Onest,sans-serif;margin:0;line-height:1.15}
+h1{font-size:34px;font-weight:800}h2{font-size:19px;font-weight:600}
+.sub,.hint{color:var(--mut)}.hint{font-size:14px;margin:10px 0}
+.hero{position:relative;overflow:hidden;border-radius:22px;padding:34px 22px 96px;margin:6px 0 18px;color:#fff;
+background:radial-gradient(circle at 82% 22%,#FFE9A8 0 22px,transparent 23px),radial-gradient(1.5px 1.5px at 12% 18%,#fff,transparent),radial-gradient(1.5px 1.5px at 34% 32%,#fff,transparent),radial-gradient(2px 2px at 58% 14%,#fff,transparent),radial-gradient(1.5px 1.5px at 70% 40%,#fff,transparent),radial-gradient(1.5px 1.5px at 92% 52%,#fff,transparent),linear-gradient(180deg,#141B4D 0%,#4B2A8F 42%,#C2417A 76%,#FF8A3D 100%)}
+.hero h1{font-size:40px;letter-spacing:1px;text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.hero p{margin:8px 0 0;max-width:30ch;color:#FFEBD6}
+.hero svg{position:absolute;left:0;bottom:-1px;width:100%;height:84px}
+.hero .cv{position:absolute;bottom:34px;left:0;font-size:30px;white-space:nowrap;letter-spacing:6px;animation:drift 22s linear infinite;filter:drop-shadow(0 2px 2px rgba(0,0,0,.4))}
+@keyframes drift{from{transform:translateX(-30%)}to{transform:translateX(110vw)}}
+@media(prefers-reduced-motion:reduce){.hero .cv{animation:none;left:24px}}
+.gh{display:flex;justify-content:space-between;align-items:center;gap:10px;background:linear-gradient(135deg,var(--night),var(--dusk));color:#fff;border-radius:14px;padding:10px 14px;margin-bottom:12px}
+.gh b{font-family:Unbounded,sans-serif;font-weight:600;font-size:15px}
+.gh span{background:var(--gold);color:#2A1700;font-weight:700;font-size:13px;border-radius:99px;padding:2px 12px}
+.card{position:relative;overflow:hidden;background:var(--sf);border:1.5px solid var(--line);border-radius:16px;padding:24px 16px 16px;margin:14px 0}
+.card:before{content:"";position:absolute;inset:0 0 auto;height:7px;background:repeating-linear-gradient(90deg,var(--turq) 0 14px,var(--gold) 14px 28px,var(--lapis) 28px 42px)}
+button{font:inherit;font-weight:700;cursor:pointer;border:0;border-radius:12px;padding:11px 18px;background:linear-gradient(135deg,var(--gold),var(--sun));color:#2A1700;box-shadow:0 3px 0 rgba(120,60,0,.35);transition:transform .12s}
+button:active{transform:translateY(2px);box-shadow:none}
+button.g{background:transparent;color:var(--ink);border:1.5px solid var(--line);box-shadow:none}
+button.x{background:transparent;color:var(--rose);border:1.5px solid var(--line);box-shadow:none}
+button.s{padding:6px 12px;font-size:14px}
+button:disabled{opacity:.45;cursor:default}
+input,select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:11px 12px}
+textarea{min-height:100px}
+:focus-visible{outline:3px solid var(--turq);outline-offset:2px}
+label.f{display:block;font-weight:700;font-size:14px;margin:12px 0 6px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.sp{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.code{display:inline-block;margin-top:6px;font-family:Unbounded,sans-serif;font-size:52px;font-weight:800;letter-spacing:8px;color:var(--gold);background:linear-gradient(135deg,var(--night),var(--dusk));border-radius:16px;padding:6px 20px 6px 28px;box-shadow:0 0 0 3px var(--gold) inset}
+.track{height:44px;border-bottom:3px dashed var(--gold);position:relative;margin:12px 0 8px}
+.track span{position:absolute;bottom:-5px;font-size:30px;transform:translateX(-50%);left:0}
+.stats{display:flex;justify-content:space-between;font-weight:700}
+.stats span{background:var(--sf);border:1.5px solid var(--line);border-radius:99px;padding:2px 14px}
+.q{font-family:Unbounded,Onest,sans-serif;font-weight:600;font-size:20px;line-height:1.35;margin:18px 0}
+.opt{display:flex;gap:12px;align-items:center;width:100%;text-align:left;background:var(--sf);color:var(--ink);border:2px solid var(--line);box-shadow:none;margin-bottom:10px;padding:12px 14px;border-radius:14px}
+.opt:not(:disabled):hover{border-color:var(--turq);transform:translateY(-2px)}
+.opt b{width:36px;height:36px;flex:none;display:grid;place-items:center;font-size:14px;color:#2A1700;background:linear-gradient(135deg,var(--gold),var(--sun));clip-path:polygon(50% 0,61% 20%,85% 15%,80% 39%,100% 50%,80% 61%,85% 85%,61% 80%,50% 100%,39% 80%,15% 85%,20% 61%,0 50%,20% 39%,15% 15%,39% 20%)}
+.opt.sel{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold)}
+.opt.right{border-color:var(--turq);box-shadow:0 0 0 3px var(--turq);background:color-mix(in srgb,var(--turq) 14%,var(--sf))}
+.opt.wrong{border-color:var(--rose);background:color-mix(in srgb,var(--rose) 12%,var(--sf))}.opt.dim{opacity:.5}
+.res{display:flex;justify-content:space-between;font-weight:700;padding:12px 16px;border-radius:14px;margin:12px 0;color:#fff}
+.res.ok{background:linear-gradient(135deg,var(--turq),var(--lapis))}.res.no{background:linear-gradient(135deg,var(--rose),var(--dusk))}
+.lane{margin:16px 0}.lane .sp{font-weight:700;margin-bottom:5px}
+.rd{height:16px;background:var(--line);border-radius:99px;position:relative}
+.rd i{display:block;height:100%;background:linear-gradient(90deg,var(--turq),var(--gold),var(--sun));border-radius:99px;transition:width .7s}
+.rd em{position:absolute;top:-13px;transform:translateX(-80%);font-style:normal;font-size:24px;transition:left .7s}
+.lane:first-child .sp span:first-child{color:var(--sun)}
+.cities{display:flex;justify-content:space-between;font-size:12px;color:var(--mut);margin-top:6px}
+.cities span:before{content:"◆ ";color:var(--gold)}
+.chips span{display:inline-block;background:var(--sf);border:1.5px solid var(--turq);border-radius:99px;padding:3px 13px;margin:0 6px 6px 0;font-size:14px;font-weight:500}
+.qi{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px solid var(--line)}
+.qi:first-child{border-top:0}.qi small{display:block;color:var(--turq);font-weight:500}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--night);color:var(--gold);padding:10px 16px;border-radius:12px;font-weight:700;z-index:9}
+a{color:var(--lapis)}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+const $=s=>document.querySelector(s),app=$('#app');
+const esc=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const LS={g:k=>{try{return localStorage.getItem(k)}catch(e){return null}},s:(k,v)=>{try{v==null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch(e){}}};
+let T=LS.g('kt')||'',P=null,V=null,ES=null,role='',raf=0,sets=[],ed=null,H='';
+try{P=JSON.parse(LS.g('kp')||'null')}catch(e){}
+function toast(m){const t=document.createElement('div');t.className='toast';t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),2600)}
+async function api(u,b,m){
+  const r=await fetch(u,{method:m||(b?'POST':'GET'),headers:{'content-type':'application/json','x-token':T},body:b?JSON.stringify(b):undefined});
+  const j=await r.json().catch(()=>({}));if(!r.ok){const e=new Error(j.e||'Xatolik');e.code=r.status;throw e}return j}
+const fail=e=>toast(e.message||'Xatolik');
+
+/* ---------- ulanish ---------- */
+function connect(){
+  if(ES)ES.close();
+  const q=role==='h'?`code=${H}&t=${T}`:`code=${P.code}&pid=${P.pid}`;
+  ES=new EventSource('/api/stream?'+q);
+  ES.onmessage=e=>{V=JSON.parse(e.data);V.at=performance.now();draw()};
+  ES.onerror=()=>{if(ES&&ES.readyState===2){ES=null;toast('Poyga tugagan yoki topilmadi');if(role==='p'){LS.s('kp');P=null;landing()}else adminHome()}};
+}
+function leave(){if(ES){ES.close();ES=null}cancelAnimationFrame(raf)}
+
+const hero=(t,p)=>`<section class="hero"><h1>${esc(t)}</h1><p>${esc(p)}</p><div class="cv" aria-hidden="true">🐪🐪🐪🐪</div><svg viewBox="0 0 640 84" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C90 6 180 64 300 36 S520 4 640 40 V84 H0Z" fill="var(--d1)"/><path d="M0 62 C120 34 220 76 340 58 S560 36 640 62 V84 H0Z" fill="var(--d2)"/></svg></section>`;
+/* ---------- ishtirokchi ---------- */
+function landing(){
+  leave();role='';
+  app.innerHTML=`${hero('Karvon','Ipak yoʻli boʻylab savollar poygasi. Tez va toʻgʻri javob — koʻproq kilometr.')}
+  <div class="card"><label class="f" for="cd">Poyga kodi</label><input id="cd" inputmode="numeric" maxlength="4" placeholder="4 xonali kod" autocomplete="off">
+  <div style="margin-top:12px"><button id="jn">Karvonga qoʻshilish</button></div></div>
+  <p class="hint"><a href="#admin" id="ad">Ustoz kirishi</a></p>`;
+  $('#ad').onclick=e=>{e.preventDefault();adminEntry()};
+  $('#jn').onclick=async()=>{try{const code=$('#cd').value.trim(),j=await api('/api/join',{code});P={code,pid:j.pid};LS.s('kp',JSON.stringify(P));role='p';connect()}catch(e){fail(e)}};
+}
+function nameForm(){
+  if($('#nm'))return;
+  app.innerHTML=`<h2>Karvoningizni nomlang</h2><p class="sub">Poygada shu ism bilan koʻrinasiz. Ism yozmasdan davom etib boʻlmaydi.</p>
+  <div class="card"><label class="f" for="nm">Ismingiz</label><input id="nm" maxlength="20" autocomplete="off">
+  <div style="margin-top:12px"><button id="ok">Davom etish</button></div></div>`;
+  $('#nm').focus();
+  const go=async()=>{try{await api('/api/name',{code:P.code,pid:P.pid,name:$('#nm').value})}catch(e){fail(e)}};
+  $('#ok').onclick=go;$('#nm').onkeydown=e=>{if(e.key==='Enter')go()};
+}
+const bar=()=>`<div class="gh"><b>${esc(V.name)}</b>${V.qi>=0?`<span>Savol ${V.qi+1}/${V.total}</span>`:''}</div>`;
+function lanes(){
+  const mx=V.total*1000;
+  return `<div>${V.top.map((x,i)=>{const w=Math.max(2,Math.min(100,x.s/mx*100));
+    return `<div class="lane"><div class="sp"><span>${['🥇','🥈','🥉','4.','5.'][i]} ${esc(x.n)}</span><span>${x.s} km</span></div>
+    <div class="rd"><i style="width:${w}%"></i><em style="left:${w}%">🐪</em></div></div>`}).join('')}
+  <div class="cities"><span>Xiva</span><span>Buxoro</span><span>Samarqand</span><span>Toshkent</span></div></div>`;
+}
+function tick(){
+  const f=()=>{const l=Math.max(0,V.left-(performance.now()-V.at)),e=$('#tl');if(!e)return;
+    e.textContent=Math.ceil(l/1000)+' soniya';const c=$('#cm');if(c)c.style.left=Math.min(100,(1-l/V.lim)*100)+'%';
+    if(l>0)raf=requestAnimationFrame(f)};f();
+}
+const opts=(cls,dis)=>V.o.map((t,i)=>`<button class="opt ${cls(i)}" data-i="${i}" ${dis?'disabled':''}><b>${'ABCD'[i]}</b>${esc(t)}</button>`).join('');
+function pLobby(){app.innerHTML=`${bar()}<div class="card"><h2>Karvon yoʻlga tayyor, ${esc(V.me.n)}!</h2><p class="sub">Ustoz poygani boshlashini kuting. Hozir ${V.count} ta karvon qoʻshilgan. Barchaning boshlangʻich ballari: 0 km.</p></div>`}
+function pQ(){
+  const m=V.me,d=m.c!=null;
+  app.innerHTML=`${bar()}<div class="track"><span id="cm">🐪</span></div><div class="stats"><span id="tl"></span><span>${m.s} km</span></div>
+  <p class="q">${esc(V.q)}</p>${opts(i=>m.c===i?'sel':'',d)}
+  <p class="hint">${d?'Javob qabul qilindi. Boshqalar kutilmoqda…':'Qanchalik tez javob bersangiz, shuncha koʻp km.'}</p>`;
+  document.querySelectorAll('.opt').forEach(b=>b.onclick=async()=>{try{await api('/api/answer',{code:P.code,pid:P.pid,c:+b.dataset.i})}catch(e){fail(e)}});
+  tick();
+}
+function pRev(){
+  const m=V.me,ok=m.c===V.c;
+  app.innerHTML=`${bar()}<p class="q">${esc(V.q)}</p>${opts(i=>i===V.c?'right':i===m.c?'wrong':'dim',true)}
+  <div class="res ${ok?'ok':'no'}"><span>${m.c==null?'Javob bermadingiz':ok?'Toʻgʻri!':'Xato'}</span><span>+${m.g} km</span></div>
+  <p class="hint">Sizning oʻrningiz: ${m.rank}-oʻrin, jami ${m.s} km. Keyingi savolni ustoz ochadi.</p><h2 style="margin-top:18px">Yetakchilar</h2>${lanes()}`;
+}
+function pFin(){
+  const m=V.me;
+  app.innerHTML=`${hero('Poyga yakunlandi',V.name)}<h2 style="margin-top:20px">Eng yaxshi beshlik</h2>${lanes()}
+  <div class="card"><b>${esc(m.n)}</b>: ${m.rank}-oʻrin, ${m.s} km</div><button id="nw">Bosh sahifa</button>`;
+  $('#nw').onclick=()=>{LS.s('kp');P=null;landing()};
+}
+
+/* ---------- ustoz ---------- */
+function adminEntry(){
+  if(!T)return adminLogin();
+  api('/api/sets').then(j=>{sets=j.sets;adminHome()}).catch(()=>{T='';LS.s('kt');adminLogin()});
+}
+function adminLogin(){
+  leave();role='a';
+  app.innerHTML=`<h2>Ustoz kirishi</h2><div class="card"><label class="f" for="pw">Parol</label><input id="pw" type="password" autocomplete="current-password">
+  <div class="row" style="margin-top:12px"><button id="lg">Kirish</button><button class="g" id="bk">Orqaga</button></div></div>
+  <p class="hint">Yangi qurilmada ham shu parol bilan kirasiz — qurilma eslab qolinadi.</p>`;
+  const go=async()=>{try{const j=await api('/api/login',{password:$('#pw').value});T=j.token;LS.s('kt',T);adminEntry()}catch(e){fail(e)}};
+  $('#lg').onclick=go;$('#pw').onkeydown=e=>{if(e.key==='Enter')go()};$('#bk').onclick=landing;
+}
+const persist=()=>api('/api/sets',{sets},'PUT').then(j=>{sets=j.sets}).catch(fail);
+function adminHome(){
+  leave();role='a';
+  app.innerHTML=`<div class="sp"><h1 style="font-size:26px">Ustoz paneli</h1><div class="row"><button class="g s" id="lo">Chiqish</button></div></div>
+  <div class="row" style="margin:14px 0"><button id="nw">Yangi mavzu</button></div>
+  ${sets.length?sets.map(s=>`<div class="card"><div class="sp"><div><b>${esc(s.name)}</b><div class="hint" style="margin:0">${s.qs.length} ta savol</div></div></div>
+  <div class="row" style="margin-top:10px"><button data-st="${s.id}" ${s.qs.length?'':'disabled'}>Poygani boshlash</button><button class="g" data-e="${s.id}">Tahrirlash</button><button class="x" data-d="${s.id}">Oʻchirish</button></div></div>`).join(''):'<p class="sub">Hali mavzu yoʻq. Birinchisini yarating.</p>'}
+  <label class="f" for="lim">Har savolga vaqt (soniya)</label><input id="lim" type="number" min="8" max="60" value="20" style="max-width:120px">`;
+  $('#lo').onclick=()=>{T='';LS.s('kt');landing()};
+  $('#nw').onclick=async()=>{sets.unshift({id:'n'+Date.now(),name:'Yangi mavzu',qs:[]});await persist();ed=sets[0].id;editor()};
+  document.querySelectorAll('[data-e]').forEach(b=>b.onclick=()=>{ed=b.dataset.e;editor()});
+  document.querySelectorAll('[data-d]').forEach(b=>b.onclick=async()=>{if(confirm('Mavzu oʻchirilsinmi?')){sets=sets.filter(s=>s.id!==b.dataset.d);await persist();adminHome()}});
+  document.querySelectorAll('[data-st]').forEach(b=>b.onclick=async()=>{try{const j=await api('/api/match',{setId:b.dataset.st,lim:+$('#lim').value});H=j.code;role='h';connect()}catch(e){fail(e)}});
+}
+function editor(){
+  const s=sets.find(x=>x.id===ed);if(!s)return adminHome();
+  app.innerHTML=`<div class="sp"><h2>Mavzuni tahrirlash</h2><button class="g s" id="bk">Orqaga</button></div>
+  <div class="card"><label class="f" for="nm">Mavzu nomi</label><input id="nm" value="${esc(s.name)}">
+  <h2 style="font-size:16px;margin-top:18px">Savollar (${s.qs.length})</h2>
+  ${s.qs.map((q,i)=>`<div class="qi"><div>${esc(q.q)}<small>${esc(q.o[q.a])}</small></div><button class="x s" data-x="${i}">Oʻchirish</button></div>`).join('')||'<p class="sub">Savol yoʻq.</p>'}</div>
+  <div class="card"><h2 style="font-size:16px">Savol qoʻshish</h2><label class="f" for="qq">Savol</label><input id="qq">
+  ${[0,1,2,3].map(i=>`<div class="row" style="margin-top:8px"><input type="radio" name="ok" value="${i}" ${i?'':'checked'} style="width:22px;height:22px" aria-label="Toʻgʻri javob ${'ABCD'[i]}"><input id="o${i}" placeholder="Variant ${'ABCD'[i]}" style="flex:1;width:auto"></div>`).join('')}
+  <p class="hint">Toʻgʻri variantning yonidagi doirachani belgilang.</p><button id="ad">Savolni qoʻshish</button></div>
+  <div class="card"><h2 style="font-size:16px">Koʻp savolni birdan qoʻshish</h2><p class="hint">Har qatorga: Savol | toʻgʻri javob | xato 1 | xato 2 | xato 3</p>
+  <textarea id="bulk"></textarea><div style="margin-top:10px"><button class="g" id="bd">Roʻyxatni qoʻshish</button></div></div>`;
+  $('#bk').onclick=adminHome;
+  $('#nm').onchange=async e=>{s.name=e.target.value||'Nomsiz mavzu';await persist()};
+  document.querySelectorAll('[data-x]').forEach(b=>b.onclick=async()=>{s.qs.splice(+b.dataset.x,1);await persist();editor()});
+  $('#ad').onclick=async()=>{const q=$('#qq').value.trim(),o=[0,1,2,3].map(i=>$('#o'+i).value.trim());
+    if(!q||o.some(x=>!x))return toast('Savol va 4 ta variantni toʻldiring');
+    s.qs.push({q,o,a:+document.querySelector('[name=ok]:checked').value});await persist();editor()};
+  $('#bd').onclick=async()=>{let n=0;$('#bulk').value.split('\n').forEach(l=>{const p=l.split('|').map(x=>x.trim());
+    if(p.length>=5&&p.slice(0,5).every(Boolean)){s.qs.push({q:p[0],o:p.slice(1,5),a:0});n++}});
+    if(!n)return toast('Format notoʻgʻri: 5 ta boʻlak kerak');await persist();editor();toast(n+' ta savol qoʻshildi')};
+}
+const act=a=>api('/api/host',{code:H,action:a}).catch(fail);
+function host(){
+  const head=bar();
+  if(V.state==='lobby'){
+    app.innerHTML=`${head}<div class="card"><p class="sub" style="margin:0">Ishtirokchilar shu kodni kiritadi:</p><div class="code">${V.code}</div></div>
+    <p><b>${V.count}</b> ta karvon qoʻshildi</p><div class="chips">${V.names.map(n=>`<span>${esc(n)}</span>`).join('')}</div>
+    <div class="row" style="margin-top:14px"><button id="go" ${V.count?'':'disabled'}>Poygani boshlash</button><button class="x" id="en">Bekor qilish</button></div>`;
+    $('#go').onclick=()=>act('next');
+  }else if(V.state==='question'){
+    app.innerHTML=`${head}<div class="track"><span id="cm">🐪</span></div><div class="stats"><span id="tl"></span><span>Javob berdi: ${V.ans}/${V.count}</span></div>
+    <p class="q">${esc(V.q)}</p>${opts(()=>'',true)}<button id="rv">Hozir yakunlash</button>`;
+    $('#rv').onclick=()=>act('reveal');tick();
+  }else if(V.state==='reveal'){
+    const last=V.qi+1>=V.total;
+    app.innerHTML=`${head}<p class="q">${esc(V.q)}</p>${opts(i=>i===V.c?'right':'dim',true)}<h2 style="margin:18px 0 0">Yetakchilar</h2>${lanes()}
+    <div class="row"><button id="nx">${last?'Natijalarni chiqarish':'Keyingi savol'}</button><button class="x" id="en">Tugatish</button></div>`;
+    $('#nx').onclick=()=>act('next');
+  }else{
+    app.innerHTML=`${hero('Poyga yakunlandi',V.name)}<h2 style="margin-top:20px">Eng yaxshi beshlik</h2>${lanes()}<button id="bk">Ustoz paneliga qaytish</button>`;
+    $('#bk').onclick=()=>{leave();adminHome()};
+  }
+  const en=$('#en');if(en)en.onclick=()=>{if(confirm('Poyga tugatilsinmi?'))act('end')};
+}
+
+function draw(){
+  cancelAnimationFrame(raf);
+  if(role==='h')return host();
+  if(!V.me||!V.me.n)return nameForm();
+  ({lobby:pLobby,question:pQ,reveal:pRev,final:pFin})[V.state]();
+}
+if(location.hash==='#admin')adminEntry();
+else if(P){role='p';connect()}
+else landing();
+</script>
+</body>
+</html>
